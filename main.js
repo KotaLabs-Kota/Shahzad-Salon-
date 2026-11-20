@@ -28,6 +28,19 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
+const workVideos = [...document.querySelectorAll('.work-video')];
+const workVideoObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.35 });
+workVideos.forEach((video) => workVideoObserver.observe(video));
+
 document.querySelector('#year').textContent = new Date().getFullYear();
 
 const siteHeader = document.querySelector('.site-header');
