@@ -81,9 +81,28 @@ let toastTimer;
 form?.addEventListener('submit', (event) => {
   event.preventDefault();
   const formData = new FormData(form);
-  const guestName = formData.get('name')?.trim().split(' ')[0] || 'there';
-  const service = formData.get('service') || 'appointment';
-  toast.textContent = `Thanks, ${guestName}! We’ll confirm your ${service.toLowerCase()} soon.`;
+  const guestName = formData.get('name')?.trim() || 'Guest';
+  const phone = formData.get('phone')?.trim() || 'Not provided';
+  const service = formData.get('service') || 'Appointment request';
+  const time = formData.get('time') || 'No preference';
+  const whatsappNumber = '919928931785';
+  const message = [
+    'Hello Shahzad’s Majestic Makeover,',
+    '',
+    'I would like to request an appointment.',
+    `Name: ${guestName}`,
+    `Phone: ${phone}`,
+    `Service: ${service}`,
+    `Preferred time: ${time}`,
+    '',
+    'Please let me know the available slots. Thank you!',
+  ].join('\n');
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+  if (!whatsappWindow) window.location.assign(whatsappUrl);
+
+  toast.textContent = 'Opening WhatsApp with your appointment details…';
   form.reset();
   toast.classList.add('show');
   clearTimeout(toastTimer);
