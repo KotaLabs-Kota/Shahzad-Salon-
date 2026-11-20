@@ -40,11 +40,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .desktop-nav a:hover:after, .desktop-nav a.is-active:after { width: 100%; }
 .desktop-nav a.is-active { color: var(--terracotta); }
 .header-status { display: inline-flex; align-items: center; gap: 7px; margin-right: 16px; color: var(--ink-soft); font: 9px var(--mono); letter-spacing: .05em; white-space: nowrap; }
-.header-status > span { width: 7px; height: 7px; border-radius: 50%; background: var(--terracotta); box-shadow: 0 0 0 4px rgba(189,93,65,.13); animation: statusPulse 2.5s ease-in-out infinite; }
+.header-status > span { width: 7px; height: 7px; border-radius: 50%; background: #48d49d; box-shadow: 0 0 0 4px rgba(72,212,157,.13); animation: statusPulse 2.5s ease-in-out infinite; }
 .header-book { color: var(--paper); background: var(--ink); padding: 12px 16px; font-size: 12px; font-weight: 500; transition: background .2s, transform .2s; }
 .header-book span { margin-left: 7px; color: var(--lime); }
 .header-book:hover { background: var(--terracotta); transform: translateY(-2px); }
-@keyframes statusPulse { 50% { box-shadow: 0 0 0 6px rgba(189,93,65,.04); } }
+@keyframes statusPulse { 50% { box-shadow: 0 0 0 6px rgba(72,212,157,.04); } }
 .menu-toggle, .mobile-menu { display: none; }
 
 .hero { color: var(--paper); height: min(740px, calc(100vh - 88px)); min-height: 580px; position: relative; isolation: isolate; padding: clamp(38px, 7vw, 110px) clamp(22px, 9.5vw, 146px); display: flex; align-items: center; }
@@ -280,13 +280,30 @@ h1 em, h2 em { font-weight: 500; color: var(--lime); }
 .stage-arrow:hover { color: #26362d; background: #dfe876; }
 
 .site-footer { background: #17251f; color: var(--paper); padding: 53px clamp(22px, 5.2vw, 80px) 22px; }
-.footer-main { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 45px; padding-bottom: 57px; }
+.footer-main { display: grid; grid-template-columns: 1.35fr .62fr 1.2fr .9fr; gap: clamp(28px, 4.3vw, 72px); padding-bottom: 52px; }
+.footer-brand { align-self: start; }
 .footer-brand .brand-mark { color: var(--ink); background: var(--lime); }
 .footer-brand .brand-copy strong { color: var(--paper); }
-.footer-address p, .footer-hours p { margin: 0 0 13px; color: rgba(245,240,231,.8); font-size: 13px; line-height: 1.6; }
-.footer-address a, .footer-hours a { color: var(--lime); font: 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-.footer-hours p { color: var(--lime); font: 9px var(--mono); letter-spacing: .1em; }
-.footer-hours strong { display: block; margin: 0 0 12px; font: 500 19px var(--serif); }
+.footer-explore, .footer-visit, .footer-hours { display: flex; flex-direction: column; align-items: flex-start; }
+.footer-explore > p, .footer-visit > p, .footer-hours > p { margin: 0 0 15px; color: var(--lime); font: 9px var(--mono); letter-spacing: .1em; }
+.footer-explore a { margin-bottom: 8px; color: rgba(245,240,231,.82); font-size: 13px; transition: color .2s, transform .2s; }
+.footer-explore a:hover { color: var(--lime); transform: translateX(3px); }
+.footer-location { margin-bottom: 19px; color: rgba(245,240,231,.84); font-size: 13px; line-height: 1.58; }
+.footer-location span, .instagram-link span { color: var(--lime); font-size: 15px; }
+.footer-visit .follow-label { margin: 0 0 8px; color: var(--lime); font: 8px var(--mono); letter-spacing: .1em; }
+.instagram-link, .footer-hours a { color: var(--lime); font: 10px var(--mono); letter-spacing: .04em; overflow-wrap: anywhere; }
+.footer-hours strong { display: block; margin: 0 0 12px; color: var(--paper); font: 500 19px var(--serif); }
+.kotalabs-card { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 20px; overflow: hidden; margin: 0 0 24px; padding: 19px 25px; border: 1px solid rgba(79,188,237,.31); border-radius: 26px; background: linear-gradient(110deg, #0e2637, #0c2032 64%, #0c2d43); box-shadow: inset 0 1px 0 rgba(112,212,255,.14), 0 12px 25px rgba(4,12,10,.12); transition: transform .25s var(--ease), border-color .25s; }
+.kotalabs-card:before { content: ""; position: absolute; top: -100px; right: 12%; width: 260px; height: 260px; border: 1px solid rgba(91,203,250,.12); border-radius: 50%; }
+.kotalabs-card:hover { border-color: rgba(91,203,250,.65); transform: translateY(-3px); }
+.kotalabs-mark { position: relative; z-index: 1; display: grid; place-items: center; width: 53px; height: 53px; border: 1px solid rgba(91,203,250,.65); border-radius: 13px; background: linear-gradient(145deg, #135780, #143b59); box-shadow: inset 0 0 16px rgba(89,204,255,.13); color: #e7f9ff; font: 600 24px/1 var(--sans); letter-spacing: -.1em; }
+.kotalabs-copy { position: relative; z-index: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; }
+.kotalabs-copy small { flex-basis: 100%; margin-bottom: 2px; color: #c6e8f6; font: 500 8px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+.kotalabs-copy small i { display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: #45dfa8; box-shadow: 0 0 8px rgba(69,223,168,.9); }
+.kotalabs-copy strong { color: #f2fbff; font: 600 clamp(21px, 2.3vw, 28px)/1 var(--serif); letter-spacing: -.06em; }
+.kotalabs-copy em { color: #c7e0ec; font-size: clamp(11px, 1.2vw, 14px); font-style: normal; }
+.kotalabs-cta { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px; padding: 12px 17px; border-radius: 999px; background: #54c9f2; color: #0a2637; font-size: 11px; font-weight: 600; white-space: nowrap; box-shadow: 0 4px 17px rgba(84,201,242,.27); }
+.kotalabs-cta b { font-size: 17px; font-weight: 400; }
 .footer-bottom { padding-top: 18px; border-top: 1px solid rgba(245,240,231,.17); display: flex; justify-content: space-between; gap: 20px; color: rgba(245,240,231,.65); font: 9px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
 .footer-bottom a { color: var(--lime); }
 
@@ -364,6 +381,12 @@ h1 em, h2 em { font-weight: 500; color: var(--lime); }
   .booking { display: block; padding: 75px 22px; }
   .booking-form { margin-top: 50px; }
   .footer-main { grid-template-columns: 1fr; gap: 31px; padding-bottom: 42px; }
+  .kotalabs-card { grid-template-columns: 46px minmax(0, 1fr); gap: 13px; padding: 17px; border-radius: 18px; }
+  .kotalabs-mark { width: 46px; height: 46px; border-radius: 11px; font-size: 21px; }
+  .kotalabs-copy { gap: 3px 6px; }
+  .kotalabs-copy strong { font-size: 23px; }
+  .kotalabs-copy em { flex-basis: 100%; font-size: 11px; }
+  .kotalabs-cta { grid-column: 1 / -1; justify-self: start; margin-top: 2px; }
   .footer-bottom { align-items: flex-start; flex-direction: column; gap: 8px; }
   .announcement { padding: 11px 0; }
   .announcement p { text-align: left; padding-left: 0; font-size: 8px; animation: ticker 18s linear infinite; width: max-content; }
