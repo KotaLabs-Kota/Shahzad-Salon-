@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
     <div class="site-shell">
       <header class="site-header" id="top">
         <a class="brand" href="#top" aria-label="Shahzad's Majestic Makeover home">
@@ -24,6 +26,7 @@
           <a href="#about">Studio</a>
         </nav>
 
+        <div class="header-status" aria-label="Today’s hours"><span></span> Open today · 9:30—9</div>
         <a class="header-book" href="#booking">Book a visit <span aria-hidden="true">↗</span></a>
         <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
           <span></span><span></span>
@@ -39,7 +42,7 @@
         <a class="mobile-phone" href="tel:+919928931785">+91 99289 31785</a>
       </aside>
 
-      <main>
+      <main id="main-content" tabindex="-1">
         <section class="hero" aria-labelledby="hero-heading">
           <div class="hero-image-wrap">
             <img src="/images/hero-salon.jpg" alt="Warm, contemporary salon interior" class="hero-image" />
@@ -196,6 +199,7 @@
             <p class="eyebrow light"><span></span> Let’s make time for you</p>
             <h2 id="booking-title">Your next look<br />starts <em>here.</em></h2>
             <p>Request an appointment and our team will get back to you to confirm your preferred time.</p>
+            <ol class="booking-steps" aria-label="Appointment request steps"><li><span>01</span> Tell us what you’re in the mood for.</li><li><span>02</span> Choose the time that suits your day.</li><li><span>03</span> We’ll confirm your chair.</li></ol>
             <div class="booking-details">
               <a href="tel:+919928931785">+91 99289 31785</a>
               <span>Open daily · 9:30 AM — 9 PM</span>
@@ -205,6 +209,7 @@
             <label>Your name<input required name="name" type="text" placeholder="What should we call you?" /></label>
             <label>Phone number<input required name="phone" type="tel" inputmode="tel" placeholder="Your contact number" /></label>
             <label>Interested in<select required name="service"><option value="" selected disabled>Choose a service</option><option>Haircut & styling</option><option>Beard & grooming</option><option>Hair repair & Botox</option><option>Skin & facial care</option><option>Bridal & occasion</option><option>Salon academy</option></select></label>
+            <fieldset class="time-preference"><legend>Preferred time</legend><div class="time-options"><label class="time-option"><input type="radio" name="time" value="Morning" checked /><span>Morning</span></label><label class="time-option"><input type="radio" name="time" value="Afternoon" /><span>Afternoon</span></label><label class="time-option"><input type="radio" name="time" value="Evening" /><span>Evening</span></label></div></fieldset>
             <button class="button button-light" type="submit">Request appointment <span>↗</span></button>
             <p class="form-note">Or call us directly for a same-day appointment.</p>
           </form>

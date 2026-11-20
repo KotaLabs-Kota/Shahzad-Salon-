@@ -30,15 +30,51 @@ document.querySelectorAll('.reveal').forEach((element) => observer.observe(eleme
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 
+const siteHeader = document.querySelector('.site-header');
+const progressBar = document.querySelector('#scroll-progress-bar');
+const navigationLinks = [...document.querySelectorAll('.desktop-nav a, .mobile-menu a:not(.mobile-phone)')];
+
+function updateScrollUI() {
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+  progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+  siteHeader.classList.toggle('is-scrolled', window.scrollY > 20);
+}
+
+window.addEventListener('scroll', updateScrollUI, { passive: true });
+window.addEventListener('resize', updateScrollUI);
+updateScrollUI();
+
+const navSections = [...document.querySelectorAll('#services, #work, #reels, #about')];
+const navObserver = new IntersectionObserver((entries) => {
+  const visibleSection = entries
+    .filter((entry) => entry.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+  if (!visibleSection) return;
+  navigationLinks.forEach((link) => {
+    const isCurrent = link.getAttribute('href') === `#${visibleSection.target.id}`;
+    link.classList.toggle('is-active', isCurrent);
+    if (isCurrent) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+}, { rootMargin: '-24% 0px -62% 0px', threshold: [0.15, 0.4, 0.7] });
+
+navSections.forEach((section) => navObserver.observe(section));
+
 const form = document.querySelector('#booking-form');
 const toast = document.querySelector('.toast');
 let toastTimer;
 form?.addEventListener('submit', (event) => {
   event.preventDefault();
+  const formData = new FormData(form);
+  const guestName = formData.get('name')?.trim().split(' ')[0] || 'there';
+  const service = formData.get('service') || 'appointment';
+  toast.textContent = `Thanks, ${guestName}! We’ll confirm your ${service.toLowerCase()} soon.`;
   form.reset();
   toast.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('show'), 4000);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 4500);
 });
 
 const reelChoices = [...document.querySelectorAll('.reel-choice')];
