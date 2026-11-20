@@ -145,10 +145,10 @@ h1 em, h2 em { font-weight: 500; color: var(--lime); }
 .reel-card-copy h3 { grid-area: title; margin: 0; font: 500 23px/1 var(--serif); letter-spacing: -.04em; }
 .reel-card-copy a { grid-area: link; color: var(--terracotta); font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
 
-.visit { display: grid; grid-template-columns: minmax(275px, .75fr) minmax(395px, 1.15fr); align-items: center; gap: clamp(45px, 8vw, 120px); background: #faf8f3; }
-.visit-copy { max-width: 410px; }
-.visit-copy .eyebrow { margin-bottom: 21px; }
-.visit-copy h2 { margin: 0; font: 500 clamp(46px, 5.2vw, 78px)/.95 var(--serif); letter-spacing: -.07em; }
+.visit { display: grid; grid-template-columns: minmax(310px, 390px) minmax(440px, 543px); justify-content: start; align-items: center; gap: clamp(70px, 10vw, 134px); padding: clamp(42px, 4vw, 66px) clamp(50px, 7.4vw, 100px); background: #faf8f3; }
+.visit-copy { max-width: 390px; }
+.visit-copy .eyebrow { margin-bottom: 20px; }
+.visit-copy h2 { margin: 0; font: 500 clamp(44px, 4.3vw, 60px)/.95 var(--serif); letter-spacing: -.07em; }
 .visit-copy h2 em { color: var(--terracotta); font-weight: 500; }
 .visit-intro { max-width: 365px; margin: 22px 0 24px; color: #4c5a51; font-size: 14px; line-height: 1.6; }
 .visit-details { display: grid; gap: 12px; margin-bottom: 25px; }
@@ -173,7 +173,7 @@ h1 em, h2 em { font-weight: 500; color: var(--lime); }
 .map-pin { position: absolute; top: 43%; left: 55%; display: grid; place-items: center; width: 43px; height: 43px; border-radius: 50% 50% 50% 0; background: #2b4233; box-shadow: 0 8px 0 7px rgba(43,66,51,.12); color: #f1f5e7; transform: rotate(-45deg); }
 .map-pin:before { content: ""; position: absolute; width: 70px; height: 70px; border: 1px solid rgba(43,66,51,.26); border-radius: 50%; animation: mapPulse 2.8s ease-out infinite; }
 .map-pin span { position: relative; z-index: 1; font-size: 11px; transform: rotate(45deg); }
-.map-compass { position: absolute; top: 20px; right: 20px; display: grid; place-items: center; width: 34px; height: 34px; color: #3a503d; border: 1px solid #8b9988; border-radius: 50%; background: rgba(250,252,245,.88); font-size: 19px; transition: color .2s, background .2s, transform .2s; }
+.map-compass { position: absolute; top: 28px; right: 28px; display: grid; place-items: center; width: 30px; height: 30px; color: #3a503d; border: 1px solid #8b9988; border-radius: 50%; background: rgba(250,252,245,.88); font-size: 18px; transition: color .2s, background .2s, transform .2s; }
 .map-compass:hover { color: var(--paper); background: var(--ink); transform: translateY(-2px); }
 .map-studio-label { position: absolute; left: 13px; bottom: 13px; display: flex; align-items: center; gap: 8px; padding: 8px 13px; background: rgba(255,255,252,.92); box-shadow: 0 3px 7px rgba(46,61,49,.1); }
 .map-studio-label > span { color: var(--terracotta); font-size: 16px; }
@@ -314,7 +314,7 @@ h1 em, h2 em { font-weight: 500; color: var(--lime); }
   .work-card figcaption strong { font-size: 15px; }
   .work-card figcaption small { font-size: 7px; }
   .work-card-3 { grid-column: 2; }
-  .visit { display: block; }
+  .visit { display: block; padding: 75px 22px; }
   .visit-copy { margin-bottom: 44px; }
   .visit-copy h2 { font-size: 51px; }
   .visit-map { aspect-ratio: 1.25 / 1; }
