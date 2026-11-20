@@ -10,3 +10,5 @@ The four uploaded vertical MP4 clips are now wired into the **Inside Majestic Ma
 | A precise new cut | `video 4.mp4` |
 
 The first reel loads by default and all clips start muted; visitors can use the video controls to enable sound. To replace a reel later, overwrite the matching file while keeping the filename and use a vertical 9:16 MP4 (H.264, ideally 1080 × 1920).
+
+The Transformation gallery on the main page additionally uses `video 5.mp4` and `video 6.mp4` for its first and second featured work cards.
