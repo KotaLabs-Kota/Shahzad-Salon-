@@ -1,3 +1,24 @@
+// Repeat the three points at their natural width, plus one copy for the moving edge.
+const announcement = document.querySelector('.announcement');
+const track = announcement.querySelector('.announcement-track');
+const message = track.firstElementChild;
+function fillAnnouncement() {
+  const width = message.getBoundingClientRect().width;
+  if (!width) return;
+  const needed = Math.ceil(announcement.clientWidth / width) + 1;
+  while (track.childElementCount < needed) {
+    const copy = message.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    track.append(copy);
+  }
+  while (track.childElementCount > needed) track.lastElementChild.remove();
+  track.style.setProperty('--announcement-step', `${width}px`);
+}
+fillAnnouncement();
+const announcementObserver = new ResizeObserver(fillAnnouncement);
+announcementObserver.observe(announcement);
+announcementObserver.observe(message);
+
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
 

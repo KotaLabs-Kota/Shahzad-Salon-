@@ -95,8 +95,8 @@ h1 em, h2 em { font-weight: 500; color: var(--lime); }
 .intro-stats small { display: block; margin-top: 10px; color: var(--ink-soft); font: 10px var(--mono); text-transform: uppercase; letter-spacing: .09em; }
 
 .announcement { color: var(--paper); background: var(--terracotta); padding: 13px 0; overflow: hidden; white-space: nowrap; }
-.announcement-track { display: flex; width: max-content; min-width: 200%; animation: announcement-scroll 22s linear infinite; }
-.announcement p { flex: 1 0 auto; margin: 0; text-align: center; font: 500 10px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.announcement-track { display: flex; width: max-content; animation: announcement-scroll 22s linear infinite; }
+.announcement p { flex: none; margin: 0; text-align: center; font: 500 10px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
 .announcement-star { color: var(--lime); margin: 0 19px; font-size: 13px; }
 .announcement-dot { color: var(--lime); margin: 0 17px; }
 
@@ -505,10 +505,10 @@ h1 em, h2 em { font-weight: 500; color: var(--lime); }
   .toast { right: 12px; bottom: 12px; left: 12px; text-align: center; }
 }
 
-@keyframes announcement-scroll { to { transform: translateX(-50%); } }
+@keyframes announcement-scroll { to { transform: translateX(calc(-1 * var(--announcement-step, 0px))); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .announcement-track { display: block; width: auto; min-width: 0; animation: none; white-space: normal; }
+  .announcement-track { display: block; width: auto; white-space: normal; animation: none; }
   .announcement p[aria-hidden] { display: none; }
 }
 
