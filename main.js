@@ -74,10 +74,10 @@ function selectReel(index, shouldPlay = false) {
   reelVideoFrame.classList.remove('is-playing');
 
   if (shouldPlay) {
-    reelVideo.src = `/reels/${choice.dataset.file}`;
+    reelVideo.src = encodeURI(`/reels/${choice.dataset.file}`);
     reelVideo.load();
     reelVideo.play().catch(() => {
-      // The clip may not have been uploaded yet. The styled placeholder remains visible.
+      // Some browsers require an additional interaction before starting video playback.
     });
   } else {
     reelVideo.pause();
@@ -95,5 +95,12 @@ reelPlaceholder?.addEventListener('click', () => selectReel(activeReel, true));
 reelVideo?.addEventListener('playing', () => reelVideoFrame.classList.add('is-playing'));
 reelVideo?.addEventListener('error', () => reelVideoFrame.classList.remove('is-playing'));
 reelVideo?.addEventListener('ended', () => reelVideoFrame.classList.remove('is-playing'));
+reelVideo?.addEventListener('loadedmetadata', () => {
+  const duration = Math.round(reelVideo.duration);
+  const minutes = Math.floor(duration / 60);
+  const seconds = String(duration % 60).padStart(2, '0');
+  const durationLabel = reelChoices[activeReel]?.querySelector('.reel-duration');
+  if (durationLabel && Number.isFinite(duration)) durationLabel.textContent = `${minutes}:${seconds}`;
+});
 
-selectReel(0);
+selectReel(0, true);

@@ -1,12 +1,12 @@
-# Majestic Reels video slots
+# Majestic Reels video playlist
 
-Upload the salon’s vertical video clips to this folder with these exact filenames. The **Inside Majestic Makeover** player at the bottom of the site will load them automatically when a visitor selects a reel.
+The four uploaded vertical MP4 clips are now wired into the **Inside Majestic Makeover** player at the bottom of the website, in upload order:
 
-| Playlist reel | Required filename | Recommended format |
-| --- | --- | --- |
-| A look inside the new studio | `grand-opening.mp4` | Vertical 9:16 MP4, H.264, 1080 × 1920 |
-| The transformation moment | `transformation.mp4` | Vertical 9:16 MP4, H.264, 1080 × 1920 |
-| Hair Botox & care | `hair-botox.mp4` | Vertical 9:16 MP4, H.264, 1080 × 1920 |
-| A precise new cut | `grooming-cut.mp4` | Vertical 9:16 MP4, H.264, 1080 × 1920 |
+| Playlist reel | Current file |
+| --- | --- |
+| A look inside the new studio | `video 1.mp4` |
+| The transformation moment | `video 2.mp4` |
+| Hair Botox & care | `video 3.mp4` |
+| A precise new cut | `video 4.mp4` |
 
-Keep clips concise (ideally below 60 seconds) and optimise each MP4 before upload to keep the website fast. Once videos are added to this PR, the player will use them without needing any code changes.
+The first reel loads by default and all clips start muted; visitors can use the video controls to enable sound. To replace a reel later, overwrite the matching file while keeping the filename and use a vertical 9:16 MP4 (H.264, ideally 1080 × 1920).
